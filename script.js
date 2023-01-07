@@ -1,6 +1,11 @@
 function pow(num, degree) {
-    return (degree === 0) ? 1 : (num * pow(num, degree-1));
+  if (degree === 0) {
+    return 1;
+  } else if (degree < 0) {
+    return 1 / (num * pow(num, Math.abs(degree)- 1));
+  } else {
+    return num * pow(num, degree - 1);
   }
-  
-console.log(pow(2,8)); 
+}
 
+console.log(pow(4, -2));
